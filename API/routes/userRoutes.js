@@ -5,10 +5,10 @@ const userController = require("../controller/userController");
 const verifyToken = require("../middlewares/verifyToken");
 const verifyAdmin = require('../middlewares/verifyAdmin')
 
-router.get('/',verifyToken, verifyAdmin,  userController.getAllUsers);
+router.get('/',  userController.getAllUsers);
 router.post('/', userController.createUser);
-router.delete('/:id', verifyToken, verifyAdmin, userController.deleteUser);
-router.get('/admin/:email', verifyToken, userController.getAdmin);
-router.patch('/admin/:id', verifyToken, verifyAdmin, userController.makeAdmin);
+router.delete('/:id', userController.deleteUser);
+router.get('/admin/:email', userController.getAdmin);
+router.patch('/admin/:id', userController.makeAdmin);
 
 module.exports = router;
